@@ -17,18 +17,18 @@ Caixas de Diálogo
 Temporizadores
 
 - [ ] setInterval
-- [ x ] setTimeout
+- [x] setTimeout
 
 Funções
 
-- [ x ] Função anônima com argumento
-- [ x ] Função anônima sem argumento
-- [ x ] Função anônima com retorno
+- [x] Função anônima com argumento
+- [x] Função anônima sem argumento
+- [x] Função anônima com retorno
 - [ ] Função auto-executável
-- [ x ] Função com nome
+- [x] Função com nome
 - [ ] Função aninhada/local - declarar uma função dentro de outra
-- [ x ] Passagem de uma função como parâmetro
-- [ x ] Função Flecha - Arrow Function
+- [x] Passagem de uma função como parâmetro
+- [x] Função Flecha - Arrow Function
 
 Eventos
 
@@ -41,10 +41,10 @@ Eventos
 Acesso aos elementos DOM do HTML
 
 - [ ] Via referência DOM pelo id do elemento HTML
-- [ x ] Via getElementByID()
+- [x] Via getElementByID()
 - [ ] Via getElementsByName()
-- [ x ] Via getElementsByTagName()
-- [ x ] Via seletores CSS usados na função querySelector() ou querySelectorAll()
+- [x] Via getElementsByTagName()
+- [x] Via seletores CSS usados na função querySelector() ou querySelectorAll()
 
 Tratadores de Evento
 
@@ -58,7 +58,7 @@ Objetos Nativos
 - [ ] Usar pelo menos 3 métodos de manipulação de array
 - [ ] Usar laço de repetição (for..in ou for..of ou forEach)
 - [ ] Usar pelo menos 3 métodos para manipulação de string
-- [ x ] String Template
+- [x] String Template
 
 Objetos
 
@@ -84,7 +84,7 @@ Formulário
   - [ ] Usar os atributos de validação dos inputs
   - [ ] Usar expressões regulares
 - [ ] Ler e escrever em elementos input com a propriedade value
-- [ x ] Alterar o conteúdo de elementos div ou p com a propriedade innerHTML ou textContent
+- [x] Alterar o conteúdo de elementos div ou p com a propriedade innerHTML ou textContent
 - [ ] Manipulação de elemento de listagem, como checkbox, radio ou select
 - [ ] Acesso aos elementos de um formulário via hierarquia (caminho) de objetos, ou seja, array forms e elements
 
