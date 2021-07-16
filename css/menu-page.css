@@ -227,6 +227,10 @@ main {
     .pizza-area {
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    #all-content {
+        width: 100%;
+    }
 }
 
 @media (max-width:840px) {
@@ -297,5 +301,11 @@ main {
     
     .pizzaInfo-cancelMobileButton {
         display:block;
+    }
+}
+
+@media(max-width: 650px) {
+    #all-content {
+        width: 100%;
     }
 }
