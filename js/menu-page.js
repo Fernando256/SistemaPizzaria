@@ -1,6 +1,14 @@
 let cart = [];
+
+//Verificar se o localstorage ja foi criado
+if (typeof localStorage.cart != "undefined") {
+    cart = JSON.parse(localStorage.cart);
+}
+
 let modalQt = 1;//Variavel para quantidade de pizzas selecionadas
 let modalKey = 0;//Variavel para identificação da qual pizza
+
+document.getElementById('total-items-cart').innerHTML = cart.length;
 
 const qs = function (element) {
     return document.querySelector(element);
@@ -128,6 +136,7 @@ qs('.pizzaInfo-addButton').addEventListener('click', () => {
             qt: modalQt
         });
     }
+    document.getElementById('total-items-cart').innerHTML = cart.length;
     localStorage.cart = JSON.stringify(cart);
     closeModal();
 });

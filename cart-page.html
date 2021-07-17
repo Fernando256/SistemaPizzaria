@@ -12,49 +12,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navbar-content">
-            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
-            <span>Carrinho</span>
-            <div class="cart">
-                
-                <div class="items-cart">
-                    <span id="total-items-cart">0</span>
-                </div>
-                <a href="cart-page.html"><img src="images/carrinho.png" alt="carrinho"></a>
-            </div>
-        </div>
-    </nav>
-    <div id="all-content">
-        <h1>Carrinho de Compras:</h1>
-
-        <div class="models">
-            <div class="item-cart">
-                <div class="pizza-items">
-                    <img src="" alt="pizza">
-                    <div class="text-block">
-                        <span>-</span>
-                        <a>excluir da lista</a>
+    <main>
+        <nav class="navbar">
+            <div class="navbar-content">
+                <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                <span>Carrinho</span>
+                <div class="cart">
+                    
+                    <div class="items-cart">
+                        <a href="cart-page.html">
+                        <span id="total-items-cart">0</span>
                     </div>
-                    <div class="pizzaInfo-qtarea">
-                        <button class="pizzaInfo-qt-lower">-</button>
-                        <div class="pizzaInfo-qt">1</div>
-                        <button class="pizzaInfo-qt-add">+</button>
-                    </div>
-                    <div class="pizzaInfo-price">
-                        <p>-</p>
-                    </div>
+                    <img src="images/carrinho.png" alt="carrinho"></a>
                 </div>
             </div>
-            <hr>
-        </div>
-        <main>
-            <div id= "pizza-area" class="pizza-area"></div>
-        </main>
-        <div class="total-value">
+        </nav>
+        <div id="all-content">
+            <h1>Carrinho de Compras:</h1>
 
+            <div class="models">
+                <div class="item-cart">
+                    <div class="pizza-items">
+                        <img src="" alt="pizza">
+                        <div class="text-block">
+                            <span>-</span>
+                            <div class="delete">
+                                <a>excluir da lista</a>
+                            </div>
+                            
+                        </div>
+                        <div class="pizzaInfo-qtarea">
+                            <button class="pizzaInfo-qt-lower">-</button>
+                            <div class="pizzaInfo-qt">1</div>
+                            <button class="pizzaInfo-qt-add">+</button>
+                        </div>
+                        <div class="pizzaInfo-price">
+                            <p>-</p>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+                <div id= "pizza-area" class="pizza-area"></div>
+            <div class="total-value">
+                <p>-</p>
+            </div>
+            <div class="continue-button">
+                <a href="address-page.html"><button>Continuar a compra</button></a>
+            </div>
         </div>
-    </div>
+    </main>
     <script src="js/pizza.js"></script>
     <script src="js/cart-page.js"></script>
 </body>

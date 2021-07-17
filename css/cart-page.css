@@ -37,10 +37,15 @@
     font-size: 20px;
 }
 
-.text-block a {
+.text-block .delete {
     color: #FF3D00;
     margin-top: 30px;
     margin-left: 30px;
+    padding-right: 0px;
+}
+
+.text-block a {
+    margin-top: 10px;
     cursor: pointer;
 }
 
@@ -72,5 +77,26 @@
     margin-top: 30px;
     margin-left: 100px;
     font-size: 23px;
+}
+
+.total-value p{
+    margin-right: 40px;
+    font-size: 30px;
+    text-align: right;
+}
+
+.continue-button {
+    text-align: right;
+}
+
+.continue-button button {
+    width: 300px;
+    padding: .5rem;
+    background-color: #3FC83C;
+    color: #FFFFFF;
+    font-size: 20px;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
