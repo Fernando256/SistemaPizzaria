@@ -140,3 +140,11 @@ qs('.pizzaInfo-addButton').addEventListener('click', () => {
     localStorage.cart = JSON.stringify(cart);
     closeModal();
 });
+
+//verifica se carrinho ta vazio e manda alert
+document.getElementById('cart-site').addEventListener('click', (e) =>{
+    if (cart.length == 0) {
+        e.preventDefault();
+        alert("Carrinho de compras está vazio!")
+    }
+});

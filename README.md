@@ -10,9 +10,9 @@ Luis Fernando Paganini
 # Checkist
 Caixas de Diálogo
 
-- [ ] prompt
-- [ ] alert
-- [ ] confirm
+- [x] prompt
+- [x] alert
+- [x] confirm
 
 Temporizadores
 
@@ -32,7 +32,7 @@ Funções
 
 Eventos
 
-- [ ] Evento de carregamento do documento - onload
+- [x] Evento de carregamento do documento - onload
 - [ ] Evento de movimento do mouse
 - [ ] Evento de teclado - usar charCode ou keyCode
 - [ ] Eventos de formulário - onfocus e onblur
@@ -40,7 +40,7 @@ Eventos
 
 Acesso aos elementos DOM do HTML
 
-- [ ] Via referência DOM pelo id do elemento HTML
+- [x] Via referência DOM pelo id do elemento HTML
 - [x] Via getElementByID()
 - [x] Via getElementsByName()
 - [x] Via getElementsByTagName()
@@ -49,7 +49,7 @@ Acesso aos elementos DOM do HTML
 Tratadores de Evento
 
 - [ ] Especificar o tratador de evento inline
-- [ ] Especificar o tratador de evento no carregamento da página HTML no modo tradicional - no onload
+- [x] Especificar o tratador de evento no carregamento da página HTML no modo tradicional - no onload
 - [ ] Especificar o tratador de evento no carregamento da página HTML com a função addEventListener - no onload
 - [ ] Usar o operador this em funções tratadoras de eventos.
 
@@ -63,8 +63,8 @@ Objetos Nativos
 Objetos
 
 - [x] Criar objeto usando função construtora ou notação literal
-- [ ] Criar objetos a partir da definição de classes do ES6
-- [ ] Usar herança prototipal nativa ou herança de classes do ES6
+- [x] Criar objetos a partir da definição de classes do ES6
+- [x] Usar herança prototipal nativa ou herança de classes do ES6
 
 Qualidade do código
 

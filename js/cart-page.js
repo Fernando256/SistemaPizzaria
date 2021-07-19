@@ -50,6 +50,7 @@ document.getElementById('total-items-cart').innerHTML = cart.length;
         total = 0;
         document.getElementById('total-items-cart').innerHTML = cart.length;
         updateCart();
+        verifyCart();
     }
     (function updateTotal() {
         document.querySelector('.total-value p').innerHTML = `Total: R$ ${total.toFixed(2)}`;
@@ -57,6 +58,12 @@ document.getElementById('total-items-cart').innerHTML = cart.length;
     }());
 }());
 
+function verifyCart() {
+    if (cart.length == 0) {
+        alert("Infelizmente o carrinho está vazio, você será redirecionado a pagina do cardápio!");
+        window.location.href = "./menu-page.html";
+    }  
+}
 
 function getSize(size) {
     switch(size) {

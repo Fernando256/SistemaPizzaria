@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="body-content">
     <nav class="navbar">
         <div class="navbar-content">
             <a href="index.html"><img src="images/logo.png" alt="logo"></a>
@@ -24,31 +24,31 @@
             <div class="form-client">
                 <form action="">
                     <h3>Nome Completo:</h3>
-                    <input class="input-text" type="text" placeholder="Nome Completo">
+                    <input class="input-text" type="text" placeholder="Nome Completo" >
 
                     <h3>Endereço:</h3>
 
                     <h4>Rua:</h4>
-                    <input class="input-text" type="text" placeholder="Rua">
+                    <input class="input-text" type="text" placeholder="Rua" >
 
                     <h4>Bairro:</h4>
-                    <input class="input-text" type="text" placeholder="Bairro">
+                    <input class="input-text" type="text" placeholder="Bairro" >
 
                     <h4>CEP:</h4>
-                    <input class="input-text" type="text" placeholder="CEP">
+                    <input class="input-text" type="text" placeholder="CEP" >
 
                     <h4>Numero:</h4>
                     <input class="input-text" type="text" placeholder="Numero">
 
                     <h4>Cidade:</h4>
-                    <input class="input-text" type="text" placeholder="Cidade"><br>
+                    <input class="input-text" type="text" placeholder="Cidade" ><br>
 
                     <p id="total-value">Valor Total:</p><br>
                     <p id="cashback">Precisa de troco?</p><br>
                     
-                    <input class="radio" type="radio" name="cash-back" id="option1">
+                    <input type="radio" name="cash-back" id="option1-radio" onclick="verifyChecked()">
                     <label>Sim</label><br>
-                    <input class="radio" type="radio" name="cash-back" id="option2">
+                    <input type="radio" name="cash-back" id="option2-radio">
                     <label>Não</label><br>
 
                     <button class="cancel-button">Cancelar</button>
@@ -57,5 +57,6 @@
             </div>
         </div>
     </main>
+    <script src="js/address-page.js"></script>
 </body>
 </html>
