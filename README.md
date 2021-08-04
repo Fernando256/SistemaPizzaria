@@ -40,7 +40,7 @@ Eventos
 
 Acesso aos elementos DOM do HTML
 
-- [x] Via referência DOM pelo id do elemento HTML
+- [ ] Via referência DOM pelo id do elemento HTML
 - [x] Via getElementByID()
 - [x] Via getElementsByName()
 - [x] Via getElementsByTagName()
@@ -48,7 +48,7 @@ Acesso aos elementos DOM do HTML
 
 Tratadores de Evento
 
-- [ ] Especificar o tratador de evento inline
+- [x] Especificar o tratador de evento inline
 - [x] Especificar o tratador de evento no carregamento da página HTML no modo tradicional - no onload
 - [ ] Especificar o tratador de evento no carregamento da página HTML com a função addEventListener - no onload
 - [ ] Usar o operador this em funções tratadoras de eventos.
