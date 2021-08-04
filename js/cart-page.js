@@ -1,3 +1,4 @@
+'use strict';
 let cart = JSON.parse(localStorage.cart);
 let total = 0;
 let priceItem = 0;

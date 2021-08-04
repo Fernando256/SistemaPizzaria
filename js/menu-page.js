@@ -1,7 +1,11 @@
+'use strict';
+
+import {pizzas} from './pizza.js';
+
 let cart = [];
 
 //Verificar se o localstorage ja foi criado
-if (typeof localStorage.cart != "undefined") {
+if (typeof localStorage.cart !== 'undefined') {
     cart = JSON.parse(localStorage.cart);
 }
 
@@ -12,7 +16,7 @@ document.getElementById('total-items-cart').innerHTML = cart.length;
 
 const qs = function (element) {
     return document.querySelector(element);
-}
+};
 
 pizzas.map((pizza, index) => {
     //Clona a div models e pizza-item para dentro da variavel pizzaItem
@@ -34,7 +38,8 @@ pizzas.map((pizza, index) => {
         //Não faz a ação padrão do elemento
         element.preventDefault();
 
-        //Pega qual pizza foi clicaca. O objeto mais proximo de pizza-item vai ser pego o atributo data-key
+        //Pega qual pizza foi clicaca.
+        //O objeto mais proximo de pizza-item vai ser pego o atributo data-key
         let key = element.target.closest('.pizza-item').getAttribute('data-key');
 
         modalKey = key;
@@ -50,7 +55,7 @@ pizzas.map((pizza, index) => {
 
         //Seleciona o tamanho
         document.querySelectorAll('.pizzaInfo-size').forEach((size, sizeIndex) => {
-            if (sizeIndex == 2) 
+            if (sizeIndex === 2) 
                 size.classList.add('selected');
             
             size.querySelector('span').innerHTML = pizzas[key].sizes[sizeIndex];
@@ -65,7 +70,7 @@ pizzas.map((pizza, index) => {
         setTimeout(() => {
             qs('.pizzaWindowArea').style.opacity = 1;
         }, 200);
-    })
+    });
 });
 
 //Eventos do modal das pizzas
@@ -79,7 +84,7 @@ function closeModal() {
 
         qs('.pizzaWindowArea').style.display = 'none';
         i++;
-    }, 500)
+    }, 500);
 }
 
 //Fazendo array com botoes de voltar no modal
@@ -105,7 +110,7 @@ qs('.pizzaInfo-qt-lower').addEventListener('click', () =>{
 qs('.pizzaInfo-qt-add').addEventListener('click', () =>{
     modalQt++;
     qs('.pizzaInfo-qt').innerHTML = modalQt;
-})
+});
 
 //Remover e adicionar a posição do selected no botao
 document.querySelectorAll('.pizzaInfo-size').forEach((element) => {
@@ -123,7 +128,7 @@ qs('.pizzaInfo-addButton').addEventListener('click', () => {
 
     //Caso não existir pizzas do mesmo tamanho vai retornar -1
     let key = cart.findIndex((item) => {
-        return item.identifier == identifier;
+        return item.identifier === identifier;
     });
 
     if (key > -1) {
@@ -143,8 +148,8 @@ qs('.pizzaInfo-addButton').addEventListener('click', () => {
 
 //verifica se carrinho ta vazio e manda alert
 document.getElementById('cart-site').addEventListener('click', (e) =>{
-    if (cart.length == 0) {
+    if (cart.length === 0) {
         e.preventDefault();
-        alert("Carrinho de compras está vazio!")
+        window.alert('Carrinho de compras está vazio!');
     }
 });
