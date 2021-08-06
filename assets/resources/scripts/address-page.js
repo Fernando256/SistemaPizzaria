@@ -49,7 +49,48 @@ function sendFormValues(name, street, district, cep, number, city) {
     //console.table(c.street());
     confirmAction();
 
+
 }
+
+(function validateHTML() {
+    let name = document.getElementById('full-name');
+    let street = document.getElementById('street');
+    let district = document.getElementById('district');
+    let cep = document.getElementById('cep');
+    let number = document.getElementById('number');
+    let city = document.getElementById('city');
+
+    name.addEventListener('invalid', function () {
+        if (this.validity.typeMismatch) 
+            this.setCustomValidity('Preencha o nome corretamente!');
+    });
+
+    street.addEventListener('invalid', function () {
+        if (this.validity.typeMismatch) 
+            this.setCustomValidity('Preencha a rua corretamente!');
+    });
+
+    district.addEventListener('invalid', function () {
+        if (this.validity.typeMismatch) 
+            this.setCustomValidity('Preencha o bairro corretamente!');
+    });
+
+    cep.addEventListener('invalid', function () {
+        if (this.validity.typeMismatch) 
+            this.setCustomValidity('Preencha o cep corretamente!');
+    }); 
+
+    number.addEventListener('invalid', function () {
+        if (this.validity.typeMismatch) 
+            this.setCustomValidity('Preencha o numero corretamente!');
+    });
+
+    city.addEventListener('invalid', function () {
+        if (this.validity.typeMismatch) 
+            this.setCustomValidity('Preencha a cidade corretamente!');
+    });
+
+})();
 
 function formIsValid() {
     let name = document.getElementById('full-name').value;

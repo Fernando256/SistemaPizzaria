@@ -51,7 +51,7 @@ Tratadores de Evento
 - [x] Especificar o tratador de evento inline
 - [x] Especificar o tratador de evento no carregamento da página HTML no modo tradicional - no onload
 - [ ] Especificar o tratador de evento no carregamento da página HTML com a função addEventListener - no onload
-- [ ] Usar o operador this em funções tratadoras de eventos.
+- [x] Usar o operador this em funções tratadoras de eventos.
 
 Objetos Nativos
 
@@ -79,9 +79,9 @@ Qualidade do código
 Formulário
 
 - [x] Validação de formulário com onsubmit usando os métodos tradicionais
-- [ ] Validação de formulário com HTML5 API
-  - [ ] Customizar as mensagens nos balões de mensagem
-  - [ ] Usar os atributos de validação dos inputs
+- [x] Validação de formulário com HTML5 API
+  - [x] Customizar as mensagens nos balões de mensagem
+  - [x] Usar os atributos de validação dos inputs
   - [ ] Usar expressões regulares
 - [x] Ler e escrever em elementos input com a propriedade value
 - [x] Alterar o conteúdo de elementos div ou p com a propriedade innerHTML ou textContent
