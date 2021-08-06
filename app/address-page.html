@@ -22,7 +22,7 @@
     <main>
         <div id="all-content">
             <div class="form-client">
-                <form id="form-client" onsubmit="return formIsValid()">
+                <form id="form-client">
                     <h3>Nome Completo:</h3>
                     <input class="input-text" type="text" placeholder="Nome Completo" id="full-name">
 
@@ -38,13 +38,15 @@
                     <input class="input-text" type="text" placeholder="CEP" id="cep">
 
                     <h4>Numero:</h4>
-                    <input class="input-text" type="text" placeholder="Numero" id="number">
+                    <input class="input-text" type="number" placeholder="Numero" id="number">
 
                     <h4>Cidade:</h4>
                     <input class="input-text" type="text" placeholder="Cidade" id="city"><br>
 
                     <p id="total-value">Valor Total:</p><br>
                     <p id="cashback">Precisa de troco?</p><br>
+
+                    <div id="cash-back"></div>
                     
                     <input type="radio" name="cash-back" id="option1-radio" onclick="verifyChecked()">
                     <label>Sim</label><br>
