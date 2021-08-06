@@ -1,5 +1,9 @@
 'use strict';
 let valueToReceive = 0;
+
+//Verifica se o usuario não está tentando acessar
+//ilegalmente a pagina sem estar com produtos no carrinho
+
 document.getElementById('body-content').onload = function () {
     if (localStorage.total === '0' || typeof localStorage.total === 'undefined') {
         window.alert('Infelizmente o carrinho está vazio,' +
@@ -10,6 +14,7 @@ document.getElementById('body-content').onload = function () {
 
 document.getElementById('total-value').innerHTML = `Valor Total: R$ ${localStorage.total}`;
 
+//Verifica se o radio foi selecionado ou não
 function verifyChecked() {
     let inputCashBack = document.getElementById('cash-back');
     valueToReceive = parseFloat(window.prompt('Qual valor você irá pagar?'));
@@ -22,11 +27,14 @@ function verifyChecked() {
         window.alert('Valor inválido!');
         inputCashBack.innerHTML = '';
     } else {
-        inputCashBack.innerHTML = '<input class="input-text" id="cash-back-input" type="text" value="T" readonly>'
-        document.getElementById('cash-back-input').value = `Troco para R$ ${valueToReceive.toFixed(2)}`;
+        inputCashBack.innerHTML = '<input class="input-text" id="cash-back-input"' +
+        'type="text" value="T" readonly>';
+        document.getElementById('cash-back-input').value =
+         `Troco para R$ ${valueToReceive.toFixed(2)}`;
     }
 }
 
+//Confirmação de compra
 function confirmAction() {
     let confirm = window.confirm('Tem certeza que vai finalizar a compra?');
     if (confirm) {
@@ -43,12 +51,6 @@ function sendFormValues(name, street, district, cep, number, city) {
 
 }
 
-document.forms[0].onsubmit = function(e) {
-    e.preventDefault();
-
-    formIsValid();
-}
-
 function formIsValid() {
     let name = document.getElementById('full-name').value;
     let street = document.getElementById('street').value;
@@ -56,7 +58,6 @@ function formIsValid() {
     let cep = document.getElementById('cep').value;
     let number = document.getElementById('number').value;
     let city = document.getElementById('city').value;
-    let radioIsChecked = document.querySelector('.cash-back').isSelected;
 
     if (name === null || name === '')
         return false;
@@ -77,9 +78,12 @@ function formIsValid() {
     
     if (city === null || city === '')
         return false;
-
-    if (!radioIsChecked)
-        alert('não funciona');
     
     sendFormValues(name, street, district, cep, number, city);
 }
+
+document.forms[0].onsubmit = function(e) {
+    e.preventDefault();
+
+    formIsValid();
+};
