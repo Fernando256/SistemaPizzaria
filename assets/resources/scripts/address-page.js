@@ -1,130 +1,107 @@
-'use strict';
-let valueToReceive = 0;
-
-//Verifica se o usuario não está tentando acessar
-//ilegalmente a pagina sem estar com produtos no carrinho
-
-document.getElementById('body-content').onload = function () {
-    if (localStorage.total === '0' || typeof localStorage.total === 'undefined') {
-        window.alert('Infelizmente o carrinho está vazio,' +
-        'você será redirecionado a pagina do cardápio!');
-        window.location.href = './menu-page.html';
+(function () {
+    'use strict';
+    //Verifica se o usuario não está tentando acessar
+    //ilegalmente a pagina sem estar com produtos no carrinho
+    
+    document.getElementById('body-content').onload = function () {
+        if (localStorage.total === '0' || typeof localStorage.total === 'undefined') {
+            window.alert('Infelizmente o carrinho está vazio,' +
+            'você será redirecionado a pagina do cardápio!');
+            window.location.href = './menu-page.html';
+        }
+    };
+    
+    document.getElementById('total-value').innerHTML = `Valor Total: R$ ${localStorage.total}`;
+    
+    
+    //Confirmação de compra
+    function confirmAction() {
+        let confirm = window.confirm('Tem certeza que vai finalizar a compra?');
+        if (confirm) {
+            window.alert('Compra finalizada com sucesso');
+            window.location.href = '../wireframes/index.html';
+        }
     }
-};
-
-document.getElementById('total-value').innerHTML = `Valor Total: R$ ${localStorage.total}`;
-
-//Verifica se o radio foi selecionado ou não
-function verifyChecked() {
-    let inputCashBack = document.getElementById('cash-back');
-    valueToReceive = parseFloat(window.prompt('Qual valor você irá pagar?'));
-    if (valueToReceive < parseFloat(localStorage.total)) {
-        window.alert('O valor de troco está menor ou igual ao valor total!');
-        document.getElementById('option1-radio').checked = false;
-        inputCashBack.innerHTML = '';
-    } else if (isNaN(parseFloat(valueToReceive))) {
-        document.getElementById('option1-radio').checked = false;
-        window.alert('Valor inválido!');
-        inputCashBack.innerHTML = '';
-    } else {
-        inputCashBack.innerHTML = '<input class="input-text" id="cash-back-input"' +
-        'type="text" value="T" readonly>';
-        document.getElementById('cash-back-input').value =
-         `Troco para R$ ${valueToReceive.toFixed(2)}`;
+    
+    function sendFormValues(elem) {
+        //let c = new Client(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]);
+        //alert(c.name());
+        //console.table(c.street());
+        confirmAction();
     }
-}
 
-//Confirmação de compra
-function confirmAction() {
-    let confirm = window.confirm('Tem certeza que vai finalizar a compra?');
-    if (confirm) {
-        window.alert('Compra finalizada com sucesso');
-        window.location.href = '../wireframes/index.html';
+    function validityType(element, stringInput) {
+        element.addEventListener('invalid', function () {
+            if (this.validity.typeMismatch) 
+                this.setCustomValidity(`Preencha ${stringInput} corretamente!`);
+            else
+                this.setCustomValidity('');
+        });
     }
-}
+    
+    (function validateHTML() {
+        let name = document.getElementById('full-name');
+        let street = document.getElementById('street');
+        let district = document.getElementById('district');
+        let cep = document.getElementById('cep');
+        let number = document.getElementById('number');
+        let city = document.getElementById('city');
+    
+        validityType(name, 'o nome');
+        validityType(street, 'a rua');
+        validityType(district, 'o bairro');
+        validityType(number, 'o numero');
+        validityType(city, 'a cidade');
+        
+    
+        cep.addEventListener('invalid', function () {
+            if (this.validity.patternMismatch) 
+                this.setCustomValidity('Preencha o cep da seguinte maneira ex: 11111-111!');
+            else
+                this.setCustomValidity('');
+        });
+    })();
 
-function sendFormValues(name, street, district, cep, number, city) {
-    //let c = new Client(name, street, district, cep, number, city);
-    //alert(c.name());
-    //console.table(c.street());
-    confirmAction();
+    function verifyRadio() {
+        let op1 = document.getElementById('option1-radio').checked;
+        let op2 = document.getElementById('option2-radio').checked;
 
+        if (op1 === true || op2 === true)
+            return true;
+    }
+    
+    function validateElement(element) {
+        let item;
+        for (item of element) {
+            if (item === null || item === '')
+                return false;
+        }
 
-}
+        if (!verifyRadio())
+            return false;
+        
+        return true;
+    }
 
-(function validateHTML() {
-    let name = document.getElementById('full-name');
-    let street = document.getElementById('street');
-    let district = document.getElementById('district');
-    let cep = document.getElementById('cep');
-    let number = document.getElementById('number');
-    let city = document.getElementById('city');
+    function formIsValid() {
+        let name = document.getElementById('full-name').value;
+        let street = document.getElementById('street').value;
+        let district = document.getElementById('district').value;
+        let cep = document.getElementById('cep').value;
+        let number = document.getElementById('number').value;
+        let city = document.getElementById('city').value;
 
-    name.addEventListener('invalid', function () {
-        if (this.validity.typeMismatch) 
-            this.setCustomValidity('Preencha o nome corretamente!');
-    });
+        let allElements = [name, street, district, cep, number, city];
 
-    street.addEventListener('invalid', function () {
-        if (this.validity.typeMismatch) 
-            this.setCustomValidity('Preencha a rua corretamente!');
-    });
-
-    district.addEventListener('invalid', function () {
-        if (this.validity.typeMismatch) 
-            this.setCustomValidity('Preencha o bairro corretamente!');
-    });
-
-    cep.addEventListener('invalid', function () {
-        if (this.validity.typeMismatch) 
-            this.setCustomValidity('Preencha o cep corretamente!');
-    }); 
-
-    number.addEventListener('invalid', function () {
-        if (this.validity.typeMismatch) 
-            this.setCustomValidity('Preencha o numero corretamente!');
-    });
-
-    city.addEventListener('invalid', function () {
-        if (this.validity.typeMismatch) 
-            this.setCustomValidity('Preencha a cidade corretamente!');
-    });
-
+        if (!validateElement(allElements))
+            return false;
+    
+        sendFormValues(allElements);
+    }
+    
+    document.forms[0].onsubmit = function(e) {
+        e.preventDefault();
+    
+        formIsValid();
+    };    
 })();
-
-function formIsValid() {
-    let name = document.getElementById('full-name').value;
-    let street = document.getElementById('street').value;
-    let district = document.getElementById('district').value;
-    let cep = document.getElementById('cep').value;
-    let number = document.getElementById('number').value;
-    let city = document.getElementById('city').value;
-
-    if (name === null || name === '')
-        return false;
-
-    if (street === null || street === '')
-        return false;
-
-    if (district === null || district === '')
-        return false;
-
-    if (cep === null || cep === '')
-        return false;
-    
-    
-    if (number === null || number === '')
-        return false;
-    
-    
-    if (city === null || city === '')
-        return false;
-    
-    sendFormValues(name, street, district, cep, number, city);
-}
-
-document.forms[0].onsubmit = function(e) {
-    e.preventDefault();
-
-    formIsValid();
-};

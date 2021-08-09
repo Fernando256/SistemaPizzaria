@@ -35,7 +35,7 @@
                     <input class="input-text" type="text" placeholder="Bairro" id="district" required>
 
                     <h4>CEP:</h4>
-                    <input class="input-text" type="text" placeholder="CEP" id="cep" required>
+                    <input class="input-text" type="text" placeholder="CEP" id="cep" pattern="\d{5}-\d{3}" required>
 
                     <h4>Numero:</h4>
                     <input class="input-text" type="number" placeholder="Numero" id="number" required>
@@ -48,9 +48,9 @@
 
                     <div id="cash-back"></div>
                     
-                    <input type="radio" name="cash-back" id="option1-radio" onclick="verifyChecked()">
+                    <input type="radio" name="cash-back" id="option1-radio" onclick="verifyChecked()" required>
                     <label>Sim</label><br>
-                    <input type="radio" name="cash-back" id="option2-radio">
+                    <input type="radio" name="cash-back" id="option2-radio" required>
                     <label>Não</label><br>
 
                     <button class="cancel-button">Cancelar</button>
@@ -59,6 +59,7 @@
             </div>
         </div>
     </main>
+    <script src="../assets/resources/scripts/verify-radio-address.js"></script>
     <script src="../assets/resources/scripts/address-page.js"></script>
 </body>
 </html>
