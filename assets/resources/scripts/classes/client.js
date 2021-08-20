@@ -1,4 +1,6 @@
-class Client extends Person{
+import { Person } from './person.js';
+
+export class Client extends Person{
     constructor (name, address, district, zipCode, number, city) {
         super(name);
         this.address = address;
@@ -26,6 +28,5 @@ class Client extends Person{
 
     get city() {
         return this.city;
-    }
-    
+    }  
 }

@@ -1,3 +1,4 @@
+import {Client} from './classes/client.js';
 (function () {
     'use strict';
     //Verifica se o usuario não está tentando acessar
@@ -24,8 +25,8 @@
     }
     
     function sendFormValues(elem) {
-        //let c = new Client(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]);
-        //alert(c.name());
+        let c = new Client(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]);
+        window.alert(c.name());
         //console.table(c.street());
         confirmAction();
     }
@@ -38,7 +39,9 @@
                 this.setCustomValidity('');
         });
     }
-    
+
+
+    //Valida os campos do formulario com a API do HTML5
     (function validateHTML() {
         let name = document.getElementById('full-name');
         let street = document.getElementById('street');
@@ -52,6 +55,8 @@
         validityType(district, 'o bairro');
         validityType(number, 'o numero');
         validityType(city, 'a cidade');
+
+        $('#cep').mask('00000-000');
         
     
         cep.addEventListener('invalid', function () {
@@ -83,6 +88,8 @@
         return true;
     }
 
+
+    //Verifica se todos os dados foram enviados corretamente do form
     function formIsValid() {
         let name = document.getElementById('full-name').value;
         let street = document.getElementById('street').value;
@@ -103,5 +110,19 @@
         e.preventDefault();
     
         formIsValid();
-    };    
+    };
+
+    $('button').on('click', function () {
+        // O > é um seletor hierárquico estáticos onde pega o button da classe
+        $('.buttons-form > button').css('background-color', '#3d3d3d');
+        // O children é um seletor hierárquico dinâmico onde o button é o filho da classe
+        $('.buttons-form').children('button').fadeOut();
+        setTimeout(() => {
+            window.location.href = './cart-page.html'; 
+        }, 400);
+    });
+
+    $('#checkout').ready(function() {
+        $('#checkout').addClass('checkout');
+    });
 })();

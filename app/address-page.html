@@ -46,20 +46,25 @@
                     <p id="total-value">Valor Total:</p><br>
                     <p id="cashback">Precisa de troco?</p><br>
 
-                    <div id="cash-back"></div>
+                    <div id="cash-back" class="cash-back"></div>
                     
                     <input type="radio" name="cash-back" id="option1-radio" onclick="verifyChecked()" required>
                     <label>Sim</label><br>
                     <input type="radio" name="cash-back" id="option2-radio" required>
                     <label>Não</label><br>
 
-                    <button class="cancel-button">Cancelar</button>
-                    <button class="checkout">Finalizar a compra</button>
+                    <div class="buttons-form">
+                        <button class="cancel-button">Cancelar</button>
+                        <input type="submit" id="checkout" value ="Finalizar a compra" />
+                    </div>
                 </form>
+                
             </div>
         </div>
     </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../assets/resources/scripts/verify-radio-address.js"></script>
-    <script src="../assets/resources/scripts/address-page.js"></script>
+    <script type="module" src="../assets/resources/scripts/address-page.js"></script>
 </body>
 </html>
