@@ -1,4 +1,4 @@
-import {PIZZAS} from './pizza.js';
+import {pizzas} from './pizza.js';
 
 (function () {
     'use strict';
@@ -10,7 +10,7 @@ import {PIZZAS} from './pizza.js';
         cart = JSON.parse(localStorage.cart);
     }
     
-    let modalQt = 1;//Variavel para quantidade de PIZZAS selecionadas
+    let modalQt = 1;//Variavel para quantidade de pizzas selecionadas
     let modalKey = 0;//Variavel para identificação da qual pizza
     
     document.getElementById('total-items-cart').innerHTML = cart.length;
@@ -19,7 +19,7 @@ import {PIZZAS} from './pizza.js';
         return document.querySelector(e);
     };
     
-    PIZZAS.map((pizza, index) => {
+    pizzas.map((pizza, index) => {
         //Clona a div models e pizza-item para dentro da variavel pizzaItem
         let pizzaItem = qs('.models .pizza-item').cloneNode(true);
     
@@ -47,10 +47,10 @@ import {PIZZAS} from './pizza.js';
     
             modalQt = 1; //Valor padrão para inicial o modal da pizza
     
-            qs('.pizzaBig img').src = PIZZAS[key].img;
-            document.getElementsByTagName('h1')[0].innerHTML = PIZZAS[key].name;
-            qs('.pizzaInfo-desc').innerHTML = PIZZAS[key].description;
-            qs('.pizzaInfo-actualPrice').innerHTML = `R$ ${PIZZAS[key].price.toFixed(2)}`;
+            qs('.pizzaBig img').src = pizzas[key].img;
+            document.getElementsByTagName('h1')[0].innerHTML = pizzas[key].name;
+            qs('.pizzaInfo-desc').innerHTML = pizzas[key].description;
+            qs('.pizzaInfo-actualPrice').innerHTML = `R$ ${pizzas[key].price.toFixed(2)}`;
     
             qs('.pizzaInfo-size.selected').classList.remove('selected');
     
@@ -59,10 +59,10 @@ import {PIZZAS} from './pizza.js';
                 if (sizeIndex === 2) 
                     size.classList.add('selected');
                 
-                size.querySelector('span').innerHTML = PIZZAS[key].sizes[sizeIndex];
+                size.querySelector('span').innerHTML = pizzas[key].sizes[sizeIndex];
             });
     
-            //Quantidade de PIZZAS selecionadas no modal
+            //Quantidade de pizzas selecionadas no modal
             qs('.pizzaInfo-qt').innerHTML = modalQt;
     
             //Efeito CSS
@@ -74,7 +74,7 @@ import {PIZZAS} from './pizza.js';
         });
     });
     
-    //Eventos do modal das PIZZAS
+    //Eventos do modal das pizzas
     
     function closeModal() {
         qs('.pizzaWindowArea').style.opacity = 0;
@@ -125,9 +125,9 @@ import {PIZZAS} from './pizza.js';
     qs('.pizzaInfo-addButton').addEventListener('click', () => {
         let sizePizza= parseInt(qs('.pizzaInfo-size.selected').getAttribute('data-key'));
         
-        let identifier = PIZZAS[modalKey].id+'@'+sizePizza;
+        let identifier = pizzas[modalKey].id+'@'+sizePizza;
     
-        //Caso não existir PIZZAS do mesmo tamanho vai retornar -1
+        //Caso não existir pizzas do mesmo tamanho vai retornar -1
         let key = cart.findIndex((item) => {
             return item.identifier === identifier;
         });
@@ -137,7 +137,7 @@ import {PIZZAS} from './pizza.js';
         }else {
             cart.push({
                 identifier,
-                id: PIZZAS[modalKey].id,
+                id: pizzas[modalKey].id,
                 size: sizePizza,
                 qt: modalQt
             });

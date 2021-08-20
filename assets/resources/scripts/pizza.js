@@ -1,4 +1,4 @@
-let PIZZAS = [
+let pizzas = [
     {id:1, name:'Mussarela', img:'../assets/resources/images/pizza.png', price:20.19,
      sizes:['100g', '530g', '860g'],
      description:'Descrição da pizza como ingredientes e outras coisas para informar'},
@@ -22,4 +22,4 @@ let PIZZAS = [
      description:'Descrição da pizza como ingredientes e outras coisas para informar'}
 ];
 
-export {PIZZAS};
+export {pizzas};

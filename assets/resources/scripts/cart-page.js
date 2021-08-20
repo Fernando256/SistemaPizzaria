@@ -1,4 +1,5 @@
 import {PIZZAS} from './pizza.js';
+
 (function () {
     'use strict';
 
@@ -11,9 +12,9 @@ import {PIZZAS} from './pizza.js';
             window.alert('Infelizmente o carrinho está vazio,' +
             'você será redirecionado a pagina do cardápio!');
             window.location.href = './menu-page.html';
-        }  
+        } 
     }
-
+   
     function getSize(size) {
         switch(size) {
             case 0:

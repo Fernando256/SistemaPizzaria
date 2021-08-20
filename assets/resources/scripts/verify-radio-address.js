@@ -18,6 +18,8 @@ let inputCashBack = document.getElementById('cash-back');
          'type="text" valuey="T" readonly>';
         document.getElementById('cash-back-input').value =
          `Troco para R$ ${valueToReceive.toFixed(2)}`;
+
+        localStorage.cashBack = `${valueToReceive.toFixed(2)}`;
     }
 }
 

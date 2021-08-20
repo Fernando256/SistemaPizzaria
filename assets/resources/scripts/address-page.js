@@ -1,4 +1,7 @@
 import {Client} from './classes/client.js';
+import {Order} from './classes/order.js';
+
+
 (function () {
     'use strict';
     //Verifica se o usuario não está tentando acessar
@@ -20,14 +23,29 @@ import {Client} from './classes/client.js';
         let confirm = window.confirm('Tem certeza que vai finalizar a compra?');
         if (confirm) {
             window.alert('Compra finalizada com sucesso');
-            window.location.href = '../wireframes/index.html';
+            //localStorage.cart = '[]';
+            window.location.href = './orders-page.html';
+            //window.location.href = '../wireframes/index.html';
         }
+    }
+
+    function orderValues() {
+        let items = JSON.parse(localStorage.cart);
+        let order = null;
+        let allOrders = [];
+
+        items.forEach((value) => {
+            order = new Order(value.id, value.size, value.qt);
+            allOrders.push(order);
+        });
+        return allOrders;
     }
     
     function sendFormValues(elem) {
-        let c = new Client(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]);
-        window.alert(c.name());
-        //console.table(c.street());
+        let orders = orderValues();
+        let c = new Client(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], orders);
+        
+        localStorage.teste += JSON.stringify(c);
         confirmAction();
     }
 
@@ -97,8 +115,13 @@ import {Client} from './classes/client.js';
         let cep = document.getElementById('cep').value;
         let number = document.getElementById('number').value;
         let city = document.getElementById('city').value;
+        let op1 = document.getElementById('option1-radio').checked;
+        let cashBack = 0;
+        
+        if (op1)
+            cashBack = localStorage.cashBack;
 
-        let allElements = [name, street, district, cep, number, city];
+        let allElements = [name, street, district, cep, number, city, cashBack];
 
         if (!validateElement(allElements))
             return false;
@@ -124,5 +147,15 @@ import {Client} from './classes/client.js';
 
     $('#checkout').ready(function() {
         $('#checkout').addClass('checkout');
+    });
+
+    $('#cep').on('blur', function () {
+        let cep = $('#cep').val();
+        let service = `http://viacep.com.br/ws/${cep}/json/`;
+        $.get(service, function (content) {
+            $('#street').val(content.logradouro);
+            $('#district').val(content.bairro);
+            $('#city').val(content.localidade);
+        });
     });
 })();
