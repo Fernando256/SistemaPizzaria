@@ -78,3 +78,28 @@
     cursor: pointer;
 }
 
+@media (max-width: 520px) {
+    .form-client .checkout {
+        width: 150px;
+        font-size: 15px;
+    }
+
+    .form-client .cancel-button {
+        font-size: 15px;
+        width: 100px;
+    }
+
+    .form-client {
+        margin-left: 10%;
+        width: 300px;
+    }
+
+    .form-client .input-text {
+        width: 250px;
+    }
+
+    img {
+        margin-right: 20px;
+        margin-left: 10px;
+    }
+}

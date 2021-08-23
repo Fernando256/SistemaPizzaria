@@ -100,3 +100,28 @@
     cursor: pointer;
 }
 
+@media (max-width: 1020px) {
+    .continue-button button {
+        margin-right: 30px;
+    }
+
+    .pizzaInfo-price p{
+        margin-right: 30px
+    }
+}
+
+@media (max-width: 600px) {
+    .pizza-items img {
+        margin-left: 2%;
+        width: 70px;
+        height: 70px;
+    }
+
+    .text-block span {
+        margin-right: 20px;
+    }
+
+    .pizzaInfo-price p {
+        margin-left: 20%;
+    }
+}

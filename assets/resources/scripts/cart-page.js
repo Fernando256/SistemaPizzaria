@@ -1,4 +1,4 @@
-import {PIZZAS} from './pizza.js';
+import {pizzas} from './pizza.js';
 
 (function () {
     'use strict';
@@ -43,14 +43,14 @@ import {PIZZAS} from './pizza.js';
         cart.map((pizza, i) => {
 
             //retorna o item da pizza selecionada
-            let pizzaItem = PIZZAS.find((pizza) => {
+            let pizzaItem = pizzas.find((pizza) => {
                 return pizza.id === cart[i].id;
             });
 
             let cartItem = document.querySelector('.models .item-cart').cloneNode(true);
 
-            let pizzaSizeName = getSize(cart[i].size);
-            let pizzaName = `${pizzaItem.name} (${pizzaSizeName})`;
+            let pizzasizeName = getSize(cart[i].size);
+            let pizzaName = `${pizzaItem.name} (${pizzasizeName})`;
             cartItem.querySelector('.pizza-items img').src = pizzaItem.img;
             cartItem.querySelector('.text-block span').innerHTML = pizzaName;
             cartItem.querySelector('.pizzaInfo-qt').innerHTML = cart[i].qt;
@@ -70,7 +70,7 @@ import {PIZZAS} from './pizza.js';
                 cart[i].qt++;
                 updatePage();
             });
-            priceItem = cart[i].qt * PIZZAS[i].price;
+            priceItem = cart[i].qt * pizzas[i].price;
             cartItem.querySelector('.pizzaInfo-price p').innerHTML = `R$ ${priceItem.toFixed(2)}`;
             total += priceItem;
             priceItem = 0;

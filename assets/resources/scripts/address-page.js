@@ -23,9 +23,9 @@ import {Order} from './classes/order.js';
         let confirm = window.confirm('Tem certeza que vai finalizar a compra?');
         if (confirm) {
             window.alert('Compra finalizada com sucesso');
-            //localStorage.cart = '[]';
+            localStorage.cart = '[]';
             window.location.href = './orders-page.html';
-            //window.location.href = '../wireframes/index.html';
+            window.location.href = '../wireframes/index.html';
         }
     }
 
@@ -40,12 +40,27 @@ import {Order} from './classes/order.js';
         });
         return allOrders;
     }
+
+    function verifyStorage(values) {
+        let storage = [];
+        let clientValues = localStorage.clientValues;
+        if (typeof clientValues === 'undefined' || clientValues === '[]') {
+            storage.push(values);
+            localStorage.clientValues = JSON.stringify(storage);
+        } else {
+            storage = JSON.parse(localStorage.clientValues);
+            storage.push(values);
+            localStorage.clientValues = JSON.stringify(storage);
+        }
+    }
     
-    function sendFormValues(elem) {
+    function sendFormValues(el) {
         let orders = orderValues();
-        let c = new Client(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], orders);
+        let total = parseFloat(localStorage.total);
+        let c = new Client(el[0], el[1], el[2], el[3], el[4], el[5], total, el[6], orders);
+
+        verifyStorage(c);
         
-        localStorage.teste += JSON.stringify(c);
         confirmAction();
     }
 
