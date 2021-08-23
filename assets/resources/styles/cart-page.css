@@ -125,3 +125,16 @@
         margin-left: 20%;
     }
 }
+
+@media (max-width: 330px) {
+    .continue-button button {
+        width: 250px;
+    }
+
+    .text-block span {
+        font-size: 15px;
+    }
+    .pizzaInfo-price p {
+        font-size: 15px;
+    }
+}
