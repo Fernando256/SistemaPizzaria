@@ -24,8 +24,7 @@ import {Order} from './classes/order.js';
         if (confirm) {
             window.alert('Compra finalizada com sucesso');
             localStorage.cart = '[]';
-            window.location.href = './orders-page.html';
-            window.location.href = '../wireframes/index.html';
+            window.location.href = '../index.html';
         }
     }
 
