@@ -165,7 +165,7 @@ import {Order} from './classes/order.js';
 
     $('#cep').on('blur', function () {
         let cep = $('#cep').val();
-        let service = `http://viacep.com.br/ws/${cep}/json/`;
+        let service = `https://viacep.com.br/ws/${cep}/json/`;
         $.get(service, function (content) {
             $('#street').val(content.logradouro);
             $('#district').val(content.bairro);
