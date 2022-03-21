@@ -6,7 +6,7 @@ Luis Fernando Paganini
 - https://www.figma.com/file/vNClWXHJ79qr8Juie78yDR/Projeto-Pizzaria-JS?node-id=0%3A1
 
 # GitHub Pages
-- https://fernando256.github.io/SistemaPizzaria/
+- https://luispaganini.github.io/SistemaPizzaria/
 # Checkist
 Caixas de Diálogo
 
